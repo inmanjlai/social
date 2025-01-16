@@ -1,0 +1,30 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title soShell
+        script(src="https://unpkg.com/htmx.org@2.0.4")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.violet.min.css")
+        script(src="https://kit.fontawesome.com/264882c67d.js", crossorigin="anonymous")
+        link(rel="stylesheet", href="/style.css" type="text/css")
+        script(src="/modal.js" defer) 
+    body(hx-boost="true") 
+        header
+            nav.container
+                ul
+                    li: h1: a(href="/") #Social
+                ul
+                    if user
+                        li: a(href=`/profile/${user.id}`) @#{user.username}
+                        li: a(href="/logout") Logout
+                    else
+                        li: a(href="/login") Login
+                        li: a(href="/register") Register
+        main.container 
+            block content
+
+        footer
+            p#footer-text(align="center") Made by 
+                a(href='https://github.com/inmanjlai' data-tooltip="Github Profiile" target="_blank") Ismail Manjlai
+
+    main

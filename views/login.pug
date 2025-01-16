@@ -1,0 +1,13 @@
+extends layout 
+
+block content
+    h2 Login
+    form(action="/login", method="POST")
+        if error
+            label#error=error
+        label(for="username") Username
+        input(type="text", name="username", id="username")
+        label(for="password") Password
+        input(type="password", name="password", id="password")
+        button(type="submit") Login
+        a(href="/register") Don't have an account with us? Sign up

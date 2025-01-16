@@ -1,0 +1,22 @@
+article(id=`post-${post.id}`)
+    header#post-header
+        nav
+            ul
+                li 
+                    a(href=`/profile/${post.authorId}`) @#{post.author.username}
+                    span.secondary-text=` ${post.posted_date}`
+            ul
+                if user && user.id === post.authorId
+                    li: span(data-tooltip="Delete Post"): i.delete-icon(data-target="modal-example", onclick="toggleModal(event)").fa-solid.fa-trash-can
+                if post_list
+                    li: a(href=`/posts/${post.id}` data-tooltip="View Post"): i.delete-icon.fa-solid.fa-square-arrow-up-right
+                dialog#modal-example
+                    article
+                        header
+                            button(aria-label="Close", rel="prev", data-target="modal-example", onclick="toggleModal(event)")
+                            h3 Confirm your action!
+                        p Are you sure you want to delete this post? This action cannot be undone
+                        footer
+                            button.secondary(role="button", data-target="modal-example", onclick="toggleModal(event)") Cancel
+                            button(hx-delete=`/posts/${post.id}`, hx-trigger='click', hx-target=`#post-${post.id}`, hx-swap="delete" autofocus, data-target="modal-example", onclick="toggleModal(event)") Delete Post
+    pre=post.content

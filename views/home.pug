@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    article
+        form(action="/posts" method="POST" id='post-form')
+            textarea(name="content", id="content" placeholder="What's on your mind?")
+        footer
+            button(type="submit" form='post-form' value='submit') Share your thoughts
+    if posts.length
+        h4 Recently Posted
+        section#posts
+            for post in posts
+                include post.pug

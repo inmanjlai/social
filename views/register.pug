@@ -1,0 +1,14 @@
+extends layout
+block content 
+    h2 Register
+    form(action="/register" method="POST")
+        if error
+            label#error=error
+        label(for="username") Username
+        input(type="text", name="username", id="username")
+        label(for="password") Password
+        input(type="password", name="password", id="password")
+        label(for="password2") Confirm Password
+        input(type="password", name="password2", id="password2")
+        button(type="submit") Register
+        a(href="/login") Already signed up? Login
