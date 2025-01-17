@@ -48,7 +48,7 @@ app.get('/', async(req, res) => {
     // Query for posts from those users
     let posts = await prisma.post.findMany({ 
         where: { authorId: { in: followingIds } },
-        include: { author: true }, 
+        include: { author: true, comments: true }, 
         orderBy: { dateCreated: 'desc' }, 
     });
 

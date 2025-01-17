@@ -136,6 +136,33 @@ span[data-tooltip] {
     border-bottom: none;
 }
 
+footer {
+    border-radius: 0px 0px 5px 5px!important;
+}
+
+.username {
+    text-decoration: none;
+}
+
+.username:hover {
+    text-decoration: underline;
+}
+
+.comment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    align-items: baseline;
+}
+
+.nav-links ul:last-child li {
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (min-width:900px) {
     .container {
         max-width: 60%;

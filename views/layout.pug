@@ -10,13 +10,18 @@ html(lang="en")
         script(src="/modal.js" defer) 
     body(hx-boost="true") 
         header
-            nav.container
+            nav.container.nav-links
                 ul
                     li: h1: a(href="/") #Social
+                if user
+                    ul
+                        li
+                            form(action='/search' method='GET')
+                                input(type="search" name="search_query" placeholder="search for something...")
                 ul
                     if user
                         li: a(href=`/profile/${user.id}`) @#{user.username}
-                        li: a(href="/logout") Logout
+                        li: a(href="/logout" data-tooltip="Logout"): i.fa-solid.fa-arrow-right-from-bracket
                     else
                         li: a(href="/login") Login
                         li: a(href="/register") Register

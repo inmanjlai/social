@@ -40,7 +40,7 @@ router.get('/profile/:userId', async(req, res) => {
         })
     }
 
-    res.render('profile', { posts, profileUser: user, user: req.session.user, isFollowing: userFollowsProfileUser });
+    res.render('profile', { posts, profileUser: user, user: req.session.user, isFollowing: userFollowsProfileUser, post_list: true });
 });
 
 

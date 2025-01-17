@@ -1,0 +1,10 @@
+extends layout 
+block content 
+    for user in users
+        article
+            header#post-header
+                nav
+                    ul
+                        li 
+                            a(href=`/profile/${user.id}`) @#{user.username}
+            main: span.secondary-text=`User ID // ${user.id}`
